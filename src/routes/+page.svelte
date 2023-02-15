@@ -3,3 +3,7 @@
 </script>
 
 <Form />
+<div>
+  <button>Back</button>
+  <button>Next</button>
+</div>

@@ -1,6 +1,10 @@
 <script>
   let carBrand = ''
   let zipCode = ''
+
+  export const validate = () => {
+    console.log('validate')
+  }
 </script>
 
 <form class="form">
