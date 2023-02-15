@@ -5,7 +5,7 @@
 
   const showModal = () => {
     if ($showModalStore) 
-      showModalStore.set(false)
+      showModalStore.set('')
     else 
     showModalStore.set('<h1>Yo</h1>')
   };
