@@ -1,57 +1,52 @@
 <script>
-  import { showModalStore } from "../stores.js";
-
-  let firstName = ''
-  let lastName = ''
-  let carModel = ''
-  let firstRegistration = ''
+  import { showModalStore, formStore } from "../stores.js";
 
   export const validate = () => {
-    console.log('val2')
-    const errors = []
+    console.log("val2");
+    const errors = [];
     const map = {
-      'First name': !!firstName,
-      'Last name': !!lastName,
-      'Car model': !!carModel,
-      'First registration': !!firstRegistration
-    }
+      "First name": !!$formStore.firstName,
+      "Last name": !!$formStore.lastName,
+      "Car model": !!$formStore.carModel,
+      "First registration": !!$formStore.firstRegistration,
+    };
     for (const [key, value] of Object.entries(map)) {
-      if (!value) errors.push(key)
+      if (!value) errors.push(key);
     }
     if (errors.length) {
-      showModalStore.set(`Fields required: ${errors.join(' ')}`)
-      return false
+      showModalStore.set(`Fields required: ${errors.join(", ")}`);
+      return false;
     }
-    return true
-  }
+    return true;
+  };
 </script>
 
 <form class="form">
   <label for="firstName">
     First name:
-    <input id="firstName" bind:value={firstName} />
+    <input id="firstName" bind:value={$formStore.firstName} />
   </label>
   <label for="lastName">
     Last name:
-    <input id="lastName" bind:value={lastName} />
+    <input id="lastName" bind:value={$formStore.lastName} />
   </label>
   <label for="carModel">
     Car model:
-    <input id="carModel" bind:value={carModel} />
+    <input id="carModel" bind:value={$formStore.carModel} />
   </label>
   <label for="firstRegistration">
     First registration:
-    <input id="firstRegistration" bind:value={firstRegistration} />
+    <input id="firstRegistration" bind:value={$formStore.firstRegistration} />
   </label>
 </form>
 
 <style lang="scss">
-.form {
-  display: flex;
-  flex-direction: column;
+  .form {
+    display: flex;
+    flex-direction: column;
 
-  & > *:not(:last-child) {
-    margin-bottom: 10px;
+    & > *:not(:last-child) {
+      margin-bottom: 10px;
+    }
   }
-}
 </style>
