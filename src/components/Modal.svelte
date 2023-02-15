@@ -6,6 +6,7 @@
   };
 </script>
 
+<!-- HTML -->
 <div class="modal">
   <div class="modal__content">
     <div class="modal__content__text">{@html $showModalStore}</div>
@@ -13,6 +14,7 @@
   </div>
 </div>
 
+<!-- CSS -->
 <style lang="scss">
   .modal {
     position: absolute;

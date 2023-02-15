@@ -21,6 +21,7 @@
   };
 </script>
 
+<!-- HTML -->
 <form class="form">
   <label for="firstName">
     First name:
@@ -40,6 +41,7 @@
   </label>
 </form>
 
+<!-- CSS -->
 <style lang="scss">
   .form {
     display: flex;

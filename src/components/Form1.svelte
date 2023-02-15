@@ -20,6 +20,7 @@
   }
 </script>
 
+<!-- HTML -->
 <form class="form">
   <label for="carBrand">
     Car brand:
@@ -31,6 +32,7 @@
   </label>
 </form>
 
+<!-- CSS -->
 <style lang="scss">
   .form {
     display: flex;
