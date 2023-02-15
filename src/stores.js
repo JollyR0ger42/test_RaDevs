@@ -4,8 +4,8 @@ export const showModalStore = writable('')
 export const formStore = writable({
   carBrand: 'BMW',
   zipCode: '65000',
-  firstName: '',
-  lastName: '',
-  carModel: '',
-  firstRegistration: '',
+  firstName: 'a',
+  lastName: 'a',
+  carModel: 'a',
+  firstRegistration: 'a',
 })

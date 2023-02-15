@@ -1,12 +1,14 @@
 <script>
   import Form1 from "./Form1.svelte";
   import Form2 from "./Form2.svelte";
-  import { showModalStore } from "../stores.js";
+  import { goto } from '$app/navigation';
+
   let formValidation;
   let step = 1;
 
   const onNext = () => {
-    if (formValidation() && step < 3) step++;
+    if (formValidation() && step === 2) goto('/result')
+    else if (formValidation() && step < 3) step++;
   };
 
   const onBack = () => {

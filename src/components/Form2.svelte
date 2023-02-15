@@ -1,8 +1,9 @@
 <script>
   import { showModalStore, formStore } from "../stores.js";
 
+  export let disabled = false;
+
   export const validate = () => {
-    console.log("val2");
     const errors = [];
     const map = {
       "First name": !!$formStore.firstName,
@@ -25,19 +26,19 @@
 <form class="form">
   <label for="firstName">
     First name:
-    <input id="firstName" bind:value={$formStore.firstName} />
+    <input id="firstName" bind:value={$formStore.firstName} disabled={disabled} />
   </label>
   <label for="lastName">
     Last name:
-    <input id="lastName" bind:value={$formStore.lastName} />
+    <input id="lastName" bind:value={$formStore.lastName} disabled={disabled} />
   </label>
   <label for="carModel">
     Car model:
-    <input id="carModel" bind:value={$formStore.carModel} />
+    <input id="carModel" bind:value={$formStore.carModel} disabled={disabled} />
   </label>
   <label for="firstRegistration">
     First registration:
-    <input id="firstRegistration" bind:value={$formStore.firstRegistration} />
+    <input id="firstRegistration" bind:value={$formStore.firstRegistration} disabled={disabled} />
   </label>
 </form>
 
@@ -47,7 +48,7 @@
     display: flex;
     flex-direction: column;
 
-    & > *:not(:last-child) {
+    & > * {
       margin-bottom: 10px;
     }
   }
