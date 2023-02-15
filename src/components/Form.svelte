@@ -2,12 +2,31 @@
   import Form1 from "./Form1.svelte";
   import Form2 from "./Form2.svelte";
   import { goto } from '$app/navigation';
+  import { showLoaderStore } from "../stores.js";
 
   let formValidation;
   let step = 1;
 
-  const onNext = () => {
-    if (formValidation() && step === 2) goto('/result')
+  const dataFetching = () => {
+    let progress = 0
+    return new Promise(resolve => {
+      const interval = setInterval(() => {
+        progress = Math.min(100, progress+1)
+        $showLoaderStore = progress
+        if (progress === 100) {
+          clearInterval(interval)
+          resolve(true)
+        }
+      }, 60)
+    })
+  }
+  
+
+  const onNext = async () => {
+    if (formValidation() && step === 2) {
+      await dataFetching()
+      goto('/result')
+    }
     else if (formValidation() && step < 3) step++;
   };
 

@@ -1,10 +1,13 @@
 <script>
-  import Modal from '../components/Modal.svelte'
-  import {showModalStore} from '../stores.js'
+  import Modal from "../components/Modal.svelte";
+  import Loader from "../components/Loader.svelte";
+  import { showModalStore, showLoaderStore } from "../stores.js";
 </script>
 
-
-<slot></slot>
+<slot />
 {#if $showModalStore}
   <Modal />
+{/if}
+{#if $showLoaderStore !== 100}
+  <Loader />
 {/if}
