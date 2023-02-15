@@ -4,10 +4,8 @@
   let formValidation;
 
   const showModal = () => {
-    if ($showModalStore) 
-      showModalStore.set('')
-    else 
-    showModalStore.set('<h1>Yo</h1>')
+    if ($showModalStore) showModalStore.set("");
+    else showModalStore.set("<h1>Yo</h1>");
   };
 </script>
 
