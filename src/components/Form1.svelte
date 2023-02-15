@@ -5,6 +5,7 @@
   let zipCode = '65000'
 
   export const validate = () => {
+    console.log('val1')
     const errors = []
     if (!['Audi', 'BMW', 'Nissan'].includes(carBrand)) {
       const error = 'Car brand should be one of: "Audi", "BMW", "Nissan"'

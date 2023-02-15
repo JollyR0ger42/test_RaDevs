@@ -2,11 +2,11 @@
   import Form1 from "./Form1.svelte";
   import Form2 from "./Form2.svelte";
   import { showModalStore } from "../stores.js";
-  let form1Validation;
+  let formValidation;
   let step = 1;
 
   const onNext = () => {
-    if (form1Validation() && step < 2) step++;
+    if (formValidation() && step < 3) step++;
   };
 
   const onBack = () => {
@@ -20,9 +20,9 @@
 </script>
 
 {#if step === 1}
-  <Form1 bind:validate={form1Validation} />
-{:else}
-  <Form2 />
+  <Form1 bind:validate={formValidation} />
+{:else if step === 2}
+  <Form2 bind:validate={formValidation} />
 {/if}
 
 <div class="form__buttons">
