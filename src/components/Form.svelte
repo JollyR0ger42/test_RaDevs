@@ -6,7 +6,7 @@
   let step = 1;
 
   const onNext = () => {
-    if (form1Validation()) step++;
+    if (form1Validation() && step < 2) step++;
   };
 
   const onBack = () => {
@@ -19,7 +19,6 @@
   };
 </script>
 
-
 {#if step === 1}
   <Form1 bind:validate={form1Validation} />
 {:else}
@@ -27,10 +26,11 @@
 {/if}
 
 <div class="form__buttons">
-  <button on:click={onBack}>Back</button>
+  {#if step !== 1}
+    <button on:click={onBack}>Back</button>
+  {/if}
   <button on:click={onNext}>Next</button>
 </div>
-
 
 <style lang="scss">
   .form__buttons {
