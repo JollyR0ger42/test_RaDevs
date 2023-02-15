@@ -3,7 +3,7 @@
   let zipCode = ''
 
   export const validate = () => {
-    console.log('validate')
+    return true
   }
 </script>
 
